@@ -2,7 +2,7 @@
 
 React component theming with Emotion https://emotion.sh
 
-Is possible to combine traditional SASS framework and dynamic custom React component styling?
+Is it possible to combine traditional SASS framework and dynamic custom React component styling?
 
 Yes, it is. Here we go: Bootstrap + Emotion
 
