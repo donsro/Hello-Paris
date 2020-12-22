@@ -1,0 +1,28 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "react-jsx",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@emotion/babel-plugin": "^11.1.2",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.11.0"
+  },
+  "dependencies": {
+    "@emotion/babel-preset-css-prop": "^11.0.0",
+    "@emotion/css": "^11.0.0",
+    "@emotion/react": "^11.1.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
