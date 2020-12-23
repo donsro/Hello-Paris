@@ -21,6 +21,17 @@ function Themes() {
                 margin: '2em 0',
                 padding: '2em'
             }
+        },
+        themeC: {
+            colors: {
+                textPrimary: 'MediumPurple',
+                bgPrimary: 'Indigo',
+                borderColor: 'DarkOrchid'
+            },
+            spacing: {
+                margin: '2em 0',
+                padding: '2em'
+            }
         }
     }
     return cssThemes;
