@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { css, Global } from '@emotion/react';
 import Clock from "./clock.js";
+import SelectTheme from "./select.js";
 
 class App extends Component {
 
@@ -9,11 +10,12 @@ class App extends Component {
         this.state = {
             isToggleOn: true,
             themeParis: "themeA",
-            themeLondon: "themeA",
-            themeNewYork: "themeA"
+            themeLondon: "themeB",
+            themeNewYork: "themeC"
         };
         // This binding is necessary to make `this` work in the callback
         this.handleClick = this.handleClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleClick() {
@@ -22,11 +24,8 @@ class App extends Component {
         }));
     }
 
-    handleThemeChange(stateProp) {
-        this.setState(state => {
-            let changedStateValue = state[stateProp] === "themeA" ? "themeB" : "themeA";
-            return { [stateProp]: changedStateValue };
-        });
+    handleChange(stateProp, event) {        
+        this.setState({ [stateProp]: event.target.value });
     }
 
     render() {
@@ -35,40 +34,59 @@ class App extends Component {
                 <Global
                     styles={{
                         body: {
-                            margin: '2em 0',
+                            margin: '2em 0 3em',
                             padding: 0,
                             backgroundColor: `${this.state.isToggleOn ? 'Gainsboro' : 'LavenderBlush'}`
                         }
                     }}
                 />
 
-                <h1 css={css`color: ${this.state.isToggleOn ? 'LavenderBlush' : 'Gainsboro'}`}>Hello World!</h1>
-                
-                <div className="row">
-                    <div className="col">
-                        <Clock city="Paris" utcOffset={1} theme={this.state.themeParis} />
-                    </div>
-                    <div className="col">
-                        <Clock city="London" utcOffset={0} theme={this.state.themeLondon} />
-                    </div>
-                    <div className="col">
-                        <Clock city="New York" utcOffset={-5} theme={this.state.themeNewYork} />
-                    </div>
-                </div>
+                <button className="btn btn-light float-end" onClick={this.handleClick}>
+                    Toggle Background
+                </button>
 
-                <div className="d-grid gap-2 d-md-flex justify-content-md-end">                    
-                    <button className="btn btn-light mx-sm-1" onClick={() => this.handleThemeChange("themeParis")}>
-                        Toggle Paris theme
-                    </button>
-                    <button className="btn btn-light mx-sm-1" onClick={() => this.handleThemeChange("themeLondon")}>
-                        Toggle London theme
-                    </button>
-                    <button className="btn btn-light mx-sm-1" onClick={() => this.handleThemeChange("themeNewYork")}>
-                        Toggle New York theme
-                    </button>
-                    <button className="btn btn-light mx-sm-1" onClick={this.handleClick}>
-                        Toggle Background {this.state.isToggleOn ? 'ON' : 'OFF'}
-                    </button>
+                <h1 css={css`color: ${this.state.isToggleOn ? 'LavenderBlush' : 'Gainsboro'}`}>Hello World!</h1>
+
+                <div className="row row-cols-3">
+                    <div className="col">
+                        <Clock
+                            city="Paris"
+                            utcOffset={1}
+                            theme={this.state.themeParis} />
+                    </div>
+                    <div className="col">
+                        <Clock
+                            city="London"
+                            utcOffset={0}
+                            theme={this.state.themeLondon} />
+                    </div>
+                    <div className="col">
+                        <Clock
+                            city="New York"
+                            utcOffset={-5}
+                            theme={this.state.themeNewYork} />
+                    </div>
+                    <div className="col">
+                        <SelectTheme
+                            label="Paris"
+                            value="themeParis"
+                            selectedValue={this.state.themeParis}
+                            onChange={this.handleChange} />
+                    </div>
+                    <div className="col">
+                        <SelectTheme
+                            label="London"
+                            value="themeLondon"
+                            selectedValue={this.state.themeLondon}
+                            onChange={this.handleChange} />
+                    </div>
+                    <div className="col">
+                        <SelectTheme
+                            label="New York"
+                            value="themeNewYork"
+                            selectedValue={this.state.themeNewYork}
+                            onChange={this.handleChange} />
+                    </div>
                 </div>
             </div>
         );
