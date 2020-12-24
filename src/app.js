@@ -34,7 +34,7 @@ class App extends Component {
                 <Global
                     styles={{
                         body: {
-                            margin: '2em 0',
+                            margin: '2em 0 3em',
                             padding: 0,
                             backgroundColor: `${this.state.isToggleOn ? 'Gainsboro' : 'LavenderBlush'}`
                         }
