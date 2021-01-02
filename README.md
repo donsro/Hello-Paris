@@ -1,6 +1,6 @@
 # Hello-Paris
 
-React component theming with Emotion https://emotion.sh
+Minimalistic React project. Component theming with Emotion https://emotion.sh
 
 Is it possible to combine traditional SASS framework and dynamic custom React component styling?
 
